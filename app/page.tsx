@@ -86,7 +86,7 @@ const Portfolio = () => {
     {
       title: 'Stock Management System',
       description: 'A full-stack application for inventory tracking built with React, Node.js, and MySQL. Features real-time inventory updates, user authentication, and comprehensive reporting.',
-      tech: ['React', 'Node.js', 'MySQL', 'Express'],
+      tech: ['Next.js', 'Nest.js', 'MySQL', 'Express'],
       github: 'https://tade1.vercel.app/',
       demo: 'https://tade1.vercel.app/',
       status: 'Live',
