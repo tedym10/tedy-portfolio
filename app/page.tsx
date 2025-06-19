@@ -3,23 +3,52 @@ import React, { useState, useEffect } from 'react';
 import { Github, Mail, ExternalLink, Code, Server, Monitor, MessageSquare, Zap, User, Briefcase, Phone, Star, Sparkles, Rocket, Heart, Coffee, Eye, Users, ChevronDown, MapPin, Calendar, Send, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  demo: string;
+  status: 'Live' | 'Completed';
+  image: string;
+}
+
+interface TechStackItem {
+  name: string;
+  icon: string;
+  category: string;
+  level: number;
+}
+
+interface Skill {
+  name: string;
+  description: string;
+  icon: string;
+}
+
+interface ParticlePosition {
+  left: number;
+  top: number;
+  delay: number;
+  duration: number;
+}
+
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  type ParticlePosition = { left: number; top: number; delay: number; duration: number };
   const [particlePositions, setParticlePositions] = useState<ParticlePosition[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
     
-    const handleMouseMove = (e: { clientX: any; clientY: any; }) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     
-    const generateParticlePositions = () => {
-      const positions = [];
+    const generateParticlePositions = (): ParticlePosition[] => {
+      const positions: ParticlePosition[] = [];
       for (let i = 0; i < 20; i++) {
         const seed = i * 12345;
         const seededRandom = (offset: number) => {
@@ -42,7 +71,7 @@ const Portfolio = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const techStack = [
+  const techStack: TechStackItem[] = [
     { name: 'JavaScript (ES6+)', icon: '🟨', category: 'Frontend', level: 90 },
     { name: 'React', icon: '⚛️', category: 'Frontend', level: 95 },
     { name: 'Next.js', icon: '▲', category: 'Frontend', level: 85 },
@@ -53,7 +82,7 @@ const Portfolio = () => {
     { name: 'Git & GitHub', icon: '📦', category: 'Tools', level: 85 },
   ];
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Stock Management System',
       description: 'A full-stack application for inventory tracking built with React, Node.js, and MySQL. Features real-time inventory updates, user authentication, and comprehensive reporting.',
@@ -74,7 +103,7 @@ const Portfolio = () => {
     }
   ];
 
-  const skills = [
+  const skills: Skill[] = [
     { name: 'Problem Solving', description: 'Debugging complex issues and optimizing performance', icon: '🔧' },
     { name: 'Technical Support', description: 'Helping teams troubleshoot and implement solutions', icon: '🛠️' },
     { name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
@@ -83,7 +112,10 @@ const Portfolio = () => {
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const CursorFollower = () => (
@@ -152,6 +184,7 @@ const Portfolio = () => {
             <button 
               className="md:hidden p-2 rounded-md text-purple-300 hover:text-white focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -215,7 +248,7 @@ const Portfolio = () => {
           
           <div className="mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent animate-pulse">
-              Hey there, I'm Tedy Geste! 👋
+              Hey there, I&apos;m Tedy Geste! 👋
             </h1>
             <h2 className="text-xl md:text-2xl lg:text-4xl font-light text-purple-200 mb-8 flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-2">
               <Code className="w-6 h-6 md:w-8 md:h-8 animate-bounce" />
@@ -269,7 +302,7 @@ const Portfolio = () => {
                 </h3>
                 <div className="space-y-3 md:space-y-4 text-gray-300 leading-relaxed text-sm md:text-base">
                   <p>
-                    I'm <span className="text-white font-semibold">Tedy</span>, a passionate <span className="text-purple-300 font-semibold">JavaScript | React | Next.js Developer</span> with experience building robust web applications. I thrive on turning complex problems into elegant solutions, whether it's debugging tricky code or optimizing performance.
+                    I&apos;m <span className="text-white font-semibold">Tedy</span>, a passionate <span className="text-purple-300 font-semibold">JavaScript | React | Next.js Developer</span> with experience building robust web applications. I thrive on turning complex problems into elegant solutions, whether it&apos;s debugging tricky code or optimizing performance.
                   </p>
                   
                   <div className="space-y-2 md:space-y-3">
@@ -303,7 +336,7 @@ const Portfolio = () => {
                       <span>🔹 Why I Code</span>
                     </h4>
                     <p className="text-xs md:text-sm">
-                      I believe in clean, maintainable code that solves real-world problems. When I'm not coding, I'm either learning new tech or helping others debug their way to success.
+                      I believe in clean, maintainable code that solves real-world problems. When I&apos;m not coding, I&apos;m either learning new tech or helping others debug their way to success.
                     </p>
                   </div>
                   
@@ -455,12 +488,12 @@ const Portfolio = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
             <Mail className="w-8 h-8 md:w-12 md:h-12 text-purple-400 animate-bounce" />
-            <span>📫 Let's Connect!</span>
+            <span>📫 Let&apos;s Connect!</span>
             <Phone className="w-8 h-8 md:w-12 md:h-12 text-pink-400 animate-pulse" />
           </h2>
           
           <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and collaborations. 
+            I&apos;m always interested in new opportunities and collaborations. 
             Whether you have a project in mind or just want to chat about tech, feel free to reach out!
           </p>
           
@@ -527,7 +560,7 @@ const Portfolio = () => {
       <footer className="py-6 md:py-8 border-t border-purple-500/20 bg-black/20 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-gray-400 text-xs md:text-sm flex flex-col md:flex-row items-center justify-center space-y-1 md:space-y-0 md:space-x-2">
-            <span>© 2025 Tedy Geste. Built with Next.js, TypeScript & Tailwind CSS</span>
+            <span>© 2025 Tedy Geste. Built with Next.js, TypeScript &amp; Tailwind CSS</span>
             <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-purple-400 animate-pulse" />
           </p>
         </div>
