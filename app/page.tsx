@@ -103,11 +103,11 @@ const Portfolio = () => {
     }
   ];
 
-  //const skills: Skill[] = [
-   // { name: 'Problem Solving', description: 'Debugging complex issues and optimizing performance', icon: '🔧' },
-   // { name: 'Technical Support', description: 'Helping teams troubleshoot and implement solutions', icon: '🛠️' },
-    //{ name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
- // ];
+  const skills: Skill[] = [
+   { name: 'Problem Solving', description: 'Debugging complex issues and optimizing performance', icon: '🔧' },
+   { name: 'Technical Support', description: 'Helping teams troubleshoot and implement solutions', icon: '🛠️' },
+    { name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
+ ];
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -317,7 +317,7 @@ const Portfolio = () => {
                       </li>
                       <li className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
-                        <span>Build scalable systems like my <span className="text-white font-medium">Stock Management System</span> (React + Node.js + MySQL)</span>
+                        <span>Build scalable systems like my <span className="text-white font-medium">Stock Management System</span> (Next.js + Nest.js + MySQL)</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
@@ -351,6 +351,23 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-500/20 hover:border-purple-500/40 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]">
+  <h3 className="text-xl md:text-2xl font-bold text-purple-300 mb-4 md:mb-6 flex items-center space-x-2">
+    <Sparkles className="w-5 h-5 md:w-6 md:h-6" />
+    <span>🌟 My Skills</span>
+  </h3>
+  <div className="grid grid-cols-1 gap-3">
+    {skills.map((skill, index) => (
+      <div key={index} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300">
+        <span className="text-xl">{skill.icon}</span>
+        <div>
+          <h4 className="font-semibold text-white">{skill.name}</h4>
+          <p className="text-sm text-gray-300">{skill.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
               
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-500/20 hover:border-purple-500/40 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]">
                 <h3 className="text-xl md:text-2xl font-bold text-purple-300 mb-4 md:mb-6 flex items-center space-x-2">
