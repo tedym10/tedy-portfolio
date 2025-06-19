@@ -103,11 +103,11 @@ const Portfolio = () => {
     }
   ];
 
-  const skills: Skill[] = [
-    { name: 'Problem Solving', description: 'Debugging complex issues and optimizing performance', icon: '🔧' },
-    { name: 'Technical Support', description: 'Helping teams troubleshoot and implement solutions', icon: '🛠️' },
-    { name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
-  ];
+  //const skills: Skill[] = [
+   // { name: 'Problem Solving', description: 'Debugging complex issues and optimizing performance', icon: '🔧' },
+   // { name: 'Technical Support', description: 'Helping teams troubleshoot and implement solutions', icon: '🛠️' },
+    //{ name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
+ // ];
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
