@@ -1,19 +1,20 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, ExternalLink, Code, Database, Server, Monitor, MessageSquare, Zap, User, Briefcase, Phone, Star, Sparkles, Rocket, Heart, Coffee, Bug, Eye, Users, ChevronDown, Download, MapPin, Calendar, Send, Menu, X } from 'lucide-react';
+import { Github, Mail, ExternalLink, Code, Server, Monitor, MessageSquare, Zap, User, Briefcase, Phone, Star, Sparkles, Rocket, Heart, Coffee, Eye, Users, ChevronDown, MapPin, Calendar, Send, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [particlePositions, setParticlePositions] = useState([]);
+  type ParticlePosition = { left: number; top: number; delay: number; duration: number };
+  const [particlePositions, setParticlePositions] = useState<ParticlePosition[]>([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
     
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: any; clientY: any; }) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     
@@ -21,7 +22,7 @@ const Portfolio = () => {
       const positions = [];
       for (let i = 0; i < 20; i++) {
         const seed = i * 12345;
-        const seededRandom = (offset) => {
+        const seededRandom = (offset: number) => {
           const x = Math.sin(seed + offset) * 10000;
           return x - Math.floor(x);
         };
@@ -79,7 +80,7 @@ const Portfolio = () => {
     { name: 'Clean Code Advocate', description: 'Writing maintainable and scalable code', icon: '✨' }
   ];
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
