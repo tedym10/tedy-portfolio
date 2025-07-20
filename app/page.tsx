@@ -339,15 +339,7 @@ const Portfolio = () => {
                       I believe in clean, maintainable code that solves real-world problems. When I&apos;m not coding, I&apos;m either learning new tech or helping others debug their way to success.
                     </p>
                   </div>
-                  <div className="bg-purple-500/10 rounded-lg p-3 md:p-4 border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300">
-                    <h4 className="text-purple-300 font-semibold mb-1 md:mb-2 flex items-center space-x-2">
-                      <Star className="w-4 h-4 animate-spin" />
-                      <span>🔹 Fun Fact</span>
-                    </h4>
-                    <p className="text-xs md:text-sm">
-                      I can troubleshoot a bug while drinking coffee ☕️ <em>and</em> keeping my sanity intact!
-                    </p>
-                  </div>
+                 
                 </div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-purple-500/20 hover:border-purple-500/40 hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]">
