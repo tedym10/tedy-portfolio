@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, ExternalLink, Code, Server, Monitor, MessageSquare, Zap, User, Briefcase, Phone, Star, Sparkles, Rocket, Heart, Coffee, Eye, Users, ChevronDown, MapPin, Calendar, Send, Menu, X } from 'lucide-react';
+import { Github, Mail, ExternalLink, Code, Server, Monitor, MessageSquare, Zap, User, Briefcase, Phone, Sparkles, Rocket, Heart, Coffee, Eye, Users, ChevronDown, MapPin, Calendar, Send, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 interface Project {
