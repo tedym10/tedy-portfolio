@@ -276,7 +276,7 @@ const Portfolio = () => {
               className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-white shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
             >
               <Eye className="w-5 h-5 group-hover:animate-pulse" />
-              <span>View My Work</span>
+              <span>View My Works</span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
