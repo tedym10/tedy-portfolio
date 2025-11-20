@@ -74,11 +74,11 @@ const Portfolio = () => {
   const techStack: TechStackItem[] = [
     { name: 'JavaScript (ES6+)', icon: '🟨', category: 'Frontend', level: 90 },
     { name: 'React', icon: '⚛️', category: 'Frontend', level: 95 },
-    { name: 'Next.js', icon: '▲', category: 'Frontend', level: 85 },
-    { name: 'HTML5/CSS3', icon: '🌐', category: 'Frontend', level: 90 },
+    { name: 'Next.js', icon: '▲', category: 'Frontend', level: 90 },
+    { name: 'HTML5/CSS3', icon: '🌐', category: 'Frontend', level: 95 },
     { name: 'Node.js', icon: '🟢', category: 'Backend', level: 80 },
     { name: 'Express', icon: '🚂', category: 'Backend', level: 75 },
-    { name: 'MySQL', icon: '🗄️', category: 'Database', level: 70 },
+    { name: 'MySQL', icon: '🗄️', category: 'Database', level: 75 },
     { name: 'Git & GitHub', icon: '📦', category: 'Tools', level: 85 },
   ];
 
