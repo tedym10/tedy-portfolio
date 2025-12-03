@@ -97,7 +97,7 @@ const Portfolio = () => {
       description: 'A resonsive and accesible website for Haik-tesfa football club in haik city with Next.js. Features real-time Team updates and comprehensive reporting.',
       tech: ['Next.js'],
       github: 'https://github.com/tedym10/haik-tesfa-fc',
-      demo: 'https://haik-tesfa-fc.vercel.app',
+      demo: 'https://haiktesfa.site',
       status: 'Live',
       image: '⚽'
     },
